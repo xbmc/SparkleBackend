@@ -15,17 +15,17 @@ SPARKLE_XML=$6
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
-if [ "$OS" == "osx" ] 
+if [ "$OS" = "osx" ] 
 then
   SUBFOLDER=osx/x86_64
 fi
 
-if [ "$OS" == "windows-x86" ]
+if [ "$OS" = "windows-x86" ]
 then
   SUBFOLDER=win32
 fi
 
-if [ "$OS" == "windows-x64" ]
+if [ "$OS" = "windows-x64" ]
 then
   SUBFOLDER=win64
 fi
@@ -42,7 +42,7 @@ FULLPATH="./$FILENAME"
 
 curl $WEBPATH -o $FULLPATH
 
-if [ "$OS" == "osx" ]
+if [ "$OS" = "osx" ]
 then
   openssl=/usr/bin/openssl
   if [ $SPARKLE_PRIVATE_KEY_PATH ] && [ -e $SPARKLE_PRIVATE_KEY_PATH ]
@@ -68,7 +68,7 @@ sed "s|#DATE#|$DATE|" | \
 sed "s|#FILESIZE#|$FILESIZE|" | 
 sed "s|#OS#|$OS|" > new_item.xml
 
-if [ "$OS" == "osx" ]
+if [ "$OS" = "osx" ]
 then
   cp new_item.xml new_item2.xml
   cat new_item2.xml | sed "s|#DSASIGNATURE#|$DSASIGNATURE|" > new_item.xml
