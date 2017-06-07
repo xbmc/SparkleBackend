@@ -1,5 +1,3 @@
-#!/bin/bash
-
 if [ $# != 6 ]
 then
   echo "usage: $0 <title> <version> <changelog> <filename> <osx|windows-x86|windows-x64> <sparkle_xml>"
