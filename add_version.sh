@@ -40,7 +40,7 @@ fi
 WEBPATH="http://mirrors.kodi.tv/releases/$SUBFOLDER/$FILENAME"
 FULLPATH="./$FILENAME"
 
-curl $WEBPATH -o $FULLPATH
+curl -L $WEBPATH -o $FULLPATH
 
 if [ "$OS" = "osx" ]
 then
