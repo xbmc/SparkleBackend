@@ -35,17 +35,21 @@ then
   exit 2
 fi
 
-FULLPATH=/var/www/downloads/releases/$SUBFOLDER/$FILENAME
+#FULLPATH=/var/www/downloads/releases/$SUBFOLDER/$FILENAME
+WEBPATH="http://mirrors.kodi.tv/releases/$SUBFOLDER/$FILENAME"
+FULLPATH="./$FILENAME"
+
+curl $WEBPATH -o $FULLPATH
 
 if [ $OS == "osx" ]
 then
   openssl=/usr/bin/openssl
   if [ $SPARKLE_PRIVATE_KEY_PATH ] && [ -e $SPARKLE_PRIVATE_KEY_PATH ]
   then
-    echo Signing $FULLPATH
+    echo Calculating signature for $FULLPATH
     $openssl dgst -sha1 -binary < "$FULLPATH" | $openssl dgst -dss1 -sign "$SPARKLE_PRIVATE_KEY_PATH" | $openssl enc -base64 > signature.base64
   else
-    echo "SPARKLE_PRIVATE_KEY_PATH is not valid in node environment variables - dmg is not signed and can't be used for sparkle updates"
+    echo "SPARKLE_PRIVATE_KEY_PATH is not valid in node environment variables - dmg signature can't be calculated and can't be used for sparkle updates"
     exit 3
   fi
 fi
