@@ -6,6 +6,6 @@
     ]]>
             </description>
             <pubDate>#DATE#</pubDate>
-            <enclosure url="http://mirrors.kodi.tv/releases/#SUBFOLDER#/#FILENAME#" sparkle:version="#VERSION#" length="#FILESIZE#" type="application/octet-stream" sparkle:dsaSignature="#DSASIGNATURE#" />
+            <enclosure sparkle:os="#OS#" url="http://mirrors.kodi.tv/releases/#SUBFOLDER#/#FILENAME#" sparkle:version="#VERSION#" length="#FILESIZE#" type="application/octet-stream" sparkle:dsaSignature="#DSASIGNATURE#" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ $# != 5 ]
+if [ $# != 6 ]
 then
-  echo "usage: $0 <title> <version> <changelog> <filename> <sparkle_xml>"
+  echo "usage: $0 <title> <version> <changelog> <filename> <osx|windows-x86|windows-x64> <sparkle_xml>"
   exit 1
 fi
 
@@ -10,7 +10,8 @@ TITLE=$1
 VERSION=$2
 CHANGELOG=$3
 FILENAME=$4
-SPARKLE_XML=$5
+OS=$5
+SPARKLE_XML=$6
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
@@ -46,7 +47,8 @@ sed "s|#VERSION#|$VERSION|" | \
 sed "s|#SUBFOLDER#|$SUBFOLDER|" | \
 sed "s|#FILENAME#|$FILENAME|" | \
 sed "s|#DATE#|$DATE|" | \
-sed "s|#FILESIZE#|$FILESIZE|" |
+sed "s|#FILESIZE#|$FILESIZE|" | \
+sed "s|#OS#|$OS|" |
 sed "s|#DSASIGNATURE#|$DSASIGNATURE|" > new_item.xml
 
 cat sparkle_xmlfeed_start.template > $SPARKLE_XML
