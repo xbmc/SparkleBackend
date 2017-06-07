@@ -5,11 +5,11 @@
             <title>Testtitle</title>
            <description>
 <![CDATA[
-testchangelog
+testc hangelog
     ]]>
             </description>
-            <pubDate>Wed, 07 Jun 2017 22:38:54 +0000</pubDate>
-            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.3-Krypton-x86_64.dmg" sparkle:version="19.1" length="77337541" type="application/octet-stream" sparkle:dsaSignature="MCwCFGZQKLB7x7Aw0X7GsbHQM5RSoU7fAhQ6HPPbw0CguGfQN7B+pxHcwa0UBA==" />
+            <pubDate>Wed, 07 Jun 2017 23:01:32 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/releases/osx/x86_64/kodi-17.3-Krypton-x86_64.dmg" sparkle:version="19.2" length="77337541" type="application/octet-stream" sparkle:dsaSignature="MCwCFGJF4Szg6mA/kDYeyPZF95hm5zWZAhQxwzhlDWpZB4cVIBnhsjkFBBDA9A==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
   </channel>
