@@ -15,19 +15,26 @@ SPARKLE_XML=$6
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
+if [ "$SOURCE_FROM_TESTBUILDS" == "true" ]
+then
+  SOURCE_FOLDER=test-builds
+else
+  SOURCE_FOLDER=releases
+fi
+
 if [ "$OS" = "osx" ] 
 then
-  SUBFOLDER=osx/x86_64
+  SUBFOLDER=$SOURCE_FOLDER/osx/x86_64
 fi
 
 if [ "$OS" = "windows-x86" ]
 then
-  SUBFOLDER=win32
+  SUBFOLDER=$SOURCE_FOLDER/win32
 fi
 
 if [ "$OS" = "windows-x64" ]
 then
-  SUBFOLDER=win64
+  SUBFOLDER=$SOURCE_FOLDER/in64
 fi
 
 if [ -z $SUBFOLDER ]
