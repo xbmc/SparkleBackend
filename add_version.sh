@@ -15,7 +15,7 @@ SPARKLE_XML=$6
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
-if [ "$SOURCE_FROM_TESTBUILDS" == "true" ]
+if [ "$SOURCE_FROM_TESTBUILDS" = "true" ]
 then
   SOURCE_FOLDER=test-builds
 else
