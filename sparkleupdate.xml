@@ -8,6 +8,17 @@
 one liner is better win32 - really now
     ]]>
             </description>
+            <pubDate>Sat, 10 Jun 2017 22:16:36 +0000</pubDate>
+            <enclosure sparkle:os="windows-x86" url="https://kodi.mirror.wearetriple.com/test-builds/win32/KodiSetup-20170610-85485f7-sparkle-x86.exe" sparkle:version="18.6" length="62074271" type="application/octet-stream" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>testversion</title>
+           <description>
+<![CDATA[
+one liner is better win32 - really now
+    ]]>
+            </description>
             <pubDate>Sat, 10 Jun 2017 22:11:48 +0000</pubDate>
             <enclosure sparkle:os="windows-x86" url="https://kodi.mirror.wearetriple.com/test-builds/win32/KodiSetup-20170610-85485f7-sparkle-x86.exe" sparkle:version="18.5" length="62074271" type="application/octet-stream" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
@@ -78,6 +89,7 @@ one liner is better
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.3" length="2110" type="application/octet-stream" sparkle:dsaSignature="MCwCFGx5pZyLCjQp/dZVVYk3wUuVlujtAhR23tJAlzTLE/StNbTXsVi4pQ5p1Q==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
+
 
 
 
