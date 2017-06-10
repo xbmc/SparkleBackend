@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <item>
+            <title>testversion</title>
+           <description>
+<![CDATA[
+#CHANGELOG#
+    ]]>
+            </description>
+            <pubDate>Sat, 10 Jun 2017 21:32:20 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.3" length="67600073" type="application/octet-stream" sparkle:dsaSignature="MC0CFHZtS1e+27X/pxvU4S+A6h8Vp7BjAhUAgrjHxs/N2Yntrk16dJoUr/SZ+cM=" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+  </channel>
+</rss>
+
