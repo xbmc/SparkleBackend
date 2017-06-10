@@ -34,7 +34,7 @@ fi
 
 if [ "$OS" = "windows-x64" ]
 then
-  SUBFOLDER=$SOURCE_FOLDER/in64
+  SUBFOLDER=$SOURCE_FOLDER/win64
 fi
 
 if [ -z $SUBFOLDER ]
@@ -43,16 +43,11 @@ then
   exit 2
 fi
 
-if [ "$SOURCE_FROM_TESTBUILDS" == "true" ]
-then
-  #FULLPATH=/var/www/downloads/test-builds/$SUBFOLDER/$FILENAME
-  WEBPATH="http://mirrors.kodi.tv/test-builds/$SUBFOLDER/$FILENAME"
-else
-  #FULLPATH=/var/www/downloads/releases/$SUBFOLDER/$FILENAME
-  WEBPATH="http://mirrors.kodi.tv/releases/$SUBFOLDER/$FILENAME"
-fi
+#FULLPATH=/var/www/downloads/$SUBFOLDER/$FILENAME
+WEBPATH="http://mirrors.kodi.tv/$SUBFOLDER/$FILENAME"
 FULLPATH="./$FILENAME"
 
+echo $WEBPATH
 curl -L $WEBPATH -o $FULLPATH
 
 
