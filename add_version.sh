@@ -6,6 +6,8 @@ then
   exit 1
 fi
 
+DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
+
 TITLE=$1
 VERSION=$2
 CHANGELOG=$3
@@ -85,6 +87,7 @@ sed -ie "s|#FILENAME#|$FILENAME|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DOWNLOAD_MIRROR#|$DOWNLOAD_MIRROR|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then
@@ -102,22 +105,22 @@ HEADER_LINE3="<channel>"
 FOOTER_LINE1="<\/channel>"
 FOOTER_LINE2="<\/rss>"
 
-cat $SPARKLE_XML
-echo removing header1
+#cat $SPARKLE_XML
+#echo removing header1
 sed -ie "/$HEADER_LINE1/d" $SPARKLE_XML
-cat $SPARKLE_XML
-echo removing header2
+#cat $SPARKLE_XML
+#echo removing header2
 sed -ie "/$HEADER_LINE2/d" $SPARKLE_XML
-cat $SPARKLE_XML
-echo removing header3
+#cat $SPARKLE_XML
+#echo removing header3
 sed -ie "/$HEADER_LINE3/d" $SPARKLE_XML
-cat $SPARKLE_XML
-echo removing footer1
+#cat $SPARKLE_XML
+#echo removing footer1
 sed -ie "/$FOOTER_LINE1/d" $SPARKLE_XML
-cat $SPARKLE_XML
-echo removing footer2
+#cat $SPARKLE_XML
+#echo removing footer2
 sed -ie "/$FOOTER_LINE2/d" $SPARKLE_XML
-cat $SPARKLE_XML
+#cat $SPARKLE_XML
 
 mv $SPARKLE_XML $OLD_ITEMS_TMP_FILE
 
