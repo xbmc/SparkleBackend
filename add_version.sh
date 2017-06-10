@@ -94,7 +94,7 @@ fi
 
 # extract the current items first from the sparklexml file
 
-HEADER_LINE1=".*\<\?xml.*"
+HEADER_LINE1=".*\<.xml .*"
 HEADER_LINE2=".*\<rss.*"
 HEADER_LINE3="\<channel\>"
 FOOTER_LINE1="\<\/channel\>"
