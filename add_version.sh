@@ -36,8 +36,14 @@ then
   exit 2
 fi
 
-#FULLPATH=/var/www/downloads/releases/$SUBFOLDER/$FILENAME
-WEBPATH="http://mirrors.kodi.tv/releases/$SUBFOLDER/$FILENAME"
+if [ "$SOURCE_FROM_TESTBUILDS" == "true" ]
+then
+  #FULLPATH=/var/www/downloads/test-builds/$SUBFOLDER/$FILENAME
+  WEBPATH="http://mirrors.kodi.tv/test-builds/$SUBFOLDER/$FILENAME"
+else
+  #FULLPATH=/var/www/downloads/releases/$SUBFOLDER/$FILENAME
+  WEBPATH="http://mirrors.kodi.tv/releases/$SUBFOLDER/$FILENAME"
+fi
 FULLPATH="./$FILENAME"
 
 curl -L $WEBPATH -o $FULLPATH
