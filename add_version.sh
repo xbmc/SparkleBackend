@@ -71,29 +71,25 @@ FILESIZE=`ls -al "$FULLPATH" | awk '{print $5}'`
 
 
 NEW_ITEM_TMP_FILE1=new_item.xml
-NEW_ITEM_TMP_FILE2=new_item2.xml
 OLD_ITEMS_TMP_FILE=old_items.xml
 
 #generating the item
-sed "s|#TITLE#|$TITLE|" sparkle_item.template | \
-sed "s|#CHANGELOG#|$CHANGELOG|" | \
-sed "s|#VERSION#|$VERSION|" | \
-sed "s|#SUBFOLDER#|$SUBFOLDER|" | \
-sed "s|#FILENAME#|$FILENAME|" | \
-sed "s|#DATE#|$DATE|" | \
-sed "s|#FILESIZE#|$FILESIZE|" | 
-sed "s|#OS#|$OS|" > $NEW_ITEM_TMP_FILE1
+cp sparkle_item.template $NEW_ITEM_TMP_FILE1
+sed -ie "s|#TITLE#|$TITLE|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#CHANGELOG#|$CHANGELOG|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#VERSION#|$VERSION|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#SUBFOLDER#|$SUBFOLDER|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#FILENAME#|$FILENAME|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then
-  cp $NEW_ITEM_TMP_FILE1 $NEW_ITEM_TMP_FILE2
-  cat $NEW_ITEM_TMP_FILE2 | sed "s|#DSASIGNATURE#|$DSASIGNATURE|" > $NEW_ITEM_TMP_FILE1
-  rm $NEW_ITEM_TMP_FILE2
+  sed -ie "s|#DSASIGNATURE#|$DSASIGNATURE|" $NEW_ITEM_TMP_FILE1
 else
   #winsparkle needs the signature attribute removed
-  cp $NEW_ITEM_TMP_FILE1 $NEW_ITEM_TMP_FILE2    
-  cat $NEW_ITEM_TMP_FILE2 | sed "s|sparkle:dsaSignature.*\/|\/|" > $NEW_ITEM_TMP_FILE1
-  rm $NEW_ITEM_TMP_FILE2
+  sed -ie "s|sparkle:dsaSignature.*\/|\/|" $NEW_ITEM_TMP_FILE1
 fi
 
 # extract the current items first from the sparklexml file
