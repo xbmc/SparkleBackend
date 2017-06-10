@@ -53,6 +53,8 @@ curl -L $WEBPATH -o $FULLPATH
 
 SIGNATURE_FILE=signature.base64
 
+touch $SIGNATURE_FILE
+
 if [ "$OS" = "osx" ]
 then
   openssl=/usr/bin/openssl
