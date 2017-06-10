@@ -8,11 +8,21 @@
 one liner is better
     ]]>
             </description>
+            <pubDate>Sat, 10 Jun 2017 21:50:18 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.4" length="67600073" type="application/octet-stream" sparkle:dsaSignature="MCwCFFk5UPmvzak3SetOs65UcsPAvo+1AhRZvGuIvZws6BAgtNxrfgd07Mj1lQ==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>testversion</title>
+           <description>
+<![CDATA[
+one liner is better
+    ]]>
+            </description>
             <pubDate>Sat, 10 Jun 2017 21:48:13 +0000</pubDate>
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.4" length="67600073" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCf6lIXtTQp0c0ipHqU5VI5j1Sh5QIULSBfGwD9DlQ2lCNgakeLjTcSH/8=" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
-<?xml version="1.0" encoding="utf-8"?>
         <item>
             <title>testversion</title>
            <description>
@@ -24,7 +34,6 @@ one liner is better
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.4" length="2110" type="application/octet-stream" sparkle:dsaSignature="MCwCFFAwvUMla5nsfDvGtN2n7iB85BjmAhQekvumIk4Ifx2YWua88H7ruYYtUA==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
-<?xml version="1.0" encoding="utf-8"?>
         <item>
             <title>testversion</title>
            <description>
@@ -36,6 +45,7 @@ one liner is better
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.3" length="2110" type="application/octet-stream" sparkle:dsaSignature="MCwCFGx5pZyLCjQp/dZVVYk3wUuVlujtAhR23tJAlzTLE/StNbTXsVi4pQ5p1Q==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
+
 
 
   </channel>
