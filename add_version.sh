@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ $# != 6 ]
+if [ $# != 5 ]
 then
-  echo "usage: $0 <title> <version> <changelog> <filename> <osx|windows-x86|windows-x64> <sparkle_xml>"
+  echo "usage: $0 <title> <version> <changelog> <download_fullpath> <sparkle_xml>"
   exit 1
 fi
 
@@ -11,46 +11,35 @@ DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
 TITLE=$1
 VERSION=$2
 CHANGELOG=$3
-FILENAME=$4
-OS=$5
-SPARKLE_XML=$6
+DOWNLOAD_FULLPATH=$4
+SPARKLE_XML=$5
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
-if [ "$SOURCE_FROM_TESTBUILDS" = "true" ]
+#determine os from the download url
+if [ echo $DOWNLOAD_FULLPATH | grep osx ]
 then
-  SOURCE_FOLDER=test-builds
-else
-  SOURCE_FOLDER=releases
+  OS=osx
+  echo "Detected osx platform in url"
 fi
 
-if [ "$OS" = "osx" ] 
+if [ echo $DOWNLOAD_FULLPATH | grep win32 ]
 then
-  SUBFOLDER=$SOURCE_FOLDER/osx/x86_64
+  OS=windows-x86
+  echo "Detected win32 platform in url"
 fi
 
-if [ "$OS" = "windows-x86" ]
+if [ echo $DOWNLOAD_FULLPATH | grep win64 ]
 then
-  SUBFOLDER=$SOURCE_FOLDER/win32
-fi
-
-if [ "$OS" = "windows-x64" ]
-then
-  SUBFOLDER=$SOURCE_FOLDER/win64
-fi
-
-if [ -z $SUBFOLDER ]
-then
-  echo "Release subfolder could not be determined from given filename. Aborting..."
-  exit 2
+  OS=windows-x64
+  echo "Detected win64 platform in url"
 fi
 
 #FULLPATH=/var/www/downloads/$SUBFOLDER/$FILENAME
-WEBPATH="http://mirrors.kodi.tv/$SUBFOLDER/$FILENAME"
 FULLPATH="./$FILENAME"
 
-echo $WEBPATH
-curl -L $WEBPATH -o $FULLPATH
+echo $DOWNLOAD_FULLPATH
+curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
 
 
 SIGNATURE_FILE=signature.base64
@@ -82,12 +71,10 @@ cp sparkle_item.template $NEW_ITEM_TMP_FILE1
 sed -ie "s|#TITLE#|$TITLE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#CHANGELOG#|$CHANGELOG|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#VERSION#|$VERSION|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#SUBFOLDER#|$SUBFOLDER|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#FILENAME#|$FILENAME|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#DOWNLOAD_MIRROR#|$DOWNLOAD_MIRROR|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_FULLPATH|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then

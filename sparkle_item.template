@@ -6,6 +6,6 @@
     ]]>
             </description>
             <pubDate>#DATE#</pubDate>
-            <enclosure sparkle:os="#OS#" url="#DOWNLOAD_MIRROR#/#SUBFOLDER#/#FILENAME#" sparkle:version="#VERSION#" length="#FILESIZE#" type="application/octet-stream" sparkle:dsaSignature="#DSASIGNATURE#" />
+            <enclosure sparkle:os="#OS#" url="#DOWNLOAD_FULLPATH#" sparkle:version="#VERSION#" length="#FILESIZE#" type="application/octet-stream" sparkle:dsaSignature="#DSASIGNATURE#" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
