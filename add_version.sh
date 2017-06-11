@@ -16,23 +16,31 @@ SPARKLE_XML=$5
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
+OS=notfound
+
 #determine os from the download url
-if [ echo $DOWNLOAD_FULLPATH | grep osx ]
+if echo $DOWNLOAD_FULLPATH | grep osx
 then
   OS=osx
   echo "Detected osx platform in url"
 fi
 
-if [ echo $DOWNLOAD_FULLPATH | grep win32 ]
+if echo $DOWNLOAD_FULLPATH | grep win32
 then
   OS=windows-x86
   echo "Detected win32 platform in url"
 fi
 
-if [ echo $DOWNLOAD_FULLPATH | grep win64 ]
+if echo $DOWNLOAD_FULLPATH | grep win64
 then
   OS=windows-x64
   echo "Detected win64 platform in url"
+fi
+
+if [ "$OS" = "notfound" ]
+then
+  echo couldn't determine the os from the URL
+  exit 3
 fi
 
 FULLPATH="./tmpfile"
