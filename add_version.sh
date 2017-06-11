@@ -35,8 +35,7 @@ then
   echo "Detected win64 platform in url"
 fi
 
-#FULLPATH=/var/www/downloads/$SUBFOLDER/$FILENAME
-FULLPATH="./$FILENAME"
+FULLPATH="./tmpfile"
 
 echo $DOWNLOAD_FULLPATH
 curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
