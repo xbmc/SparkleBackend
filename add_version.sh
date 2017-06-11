@@ -6,7 +6,7 @@ then
   exit 1
 fi
 
-DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
+DOWNLOAD_MIRROR="http://mirrors.kodi.tv"
 
 TITLE=$1
 VERSION=$2
@@ -26,6 +26,8 @@ fi
 
 if [ "$OS" = "osx" ] 
 then
+  # osx needs https - workaround - to be removed!
+  DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
   SUBFOLDER=$SOURCE_FOLDER/osx/x86_64
 fi
 
