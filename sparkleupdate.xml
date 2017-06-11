@@ -8,6 +8,17 @@
 one liner is better
     ]]>
             </description>
+            <pubDate>Sun, 11 Jun 2017 11:31:21 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170611-bb3345a-sparkle-x86_64.dmg" sparkle:version="18.7" length="67598115" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCjsVMM/qM7E8M+3uKmmyq2YEztDQIVAJbvmr/NFEm88WK2W0pRiM2kiZK3" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>testversion</title>
+           <description>
+<![CDATA[
+one liner is better
+    ]]>
+            </description>
             <pubDate>Sat, 10 Jun 2017 22:19:17 +0000</pubDate>
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.6" length="67600073" type="application/octet-stream" sparkle:dsaSignature="MC0CFDjhzvmeDS8lNxWWe4MeoDE92Zr9AhUAl7qrsAJCrMyVl4ZxLZzDfHF25DI=" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
@@ -100,6 +111,7 @@ one liner is better
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.3" length="2110" type="application/octet-stream" sparkle:dsaSignature="MCwCFGx5pZyLCjQp/dZVVYk3wUuVlujtAhR23tJAlzTLE/StNbTXsVi4pQ5p1Q==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
+
 
 
 
