@@ -96,7 +96,7 @@ else
   #winsparkle needs the signature attribute removed
   sed -ie "s|sparkle:dsaSignature.*\/|\/|" $NEW_ITEM_TMP_FILE1
   #it also needs the minimumversion element removed
-  set -ie "/\<sparkle:minimumSystemVersion.*/d" $NEW_ITEM_TMP_FILE1
+  sed -ie "/<sparkle:minimumSystemVersion.*/d" $NEW_ITEM_TMP_FILE1
 fi
 
 # extract the current items first from the sparklexml file
