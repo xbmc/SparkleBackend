@@ -8,6 +8,16 @@
 one liner is better - win64
     ]]>
             </description>
+            <pubDate>Sun, 11 Jun 2017 12:55:13 +0000</pubDate>
+            <enclosure sparkle:os="" url="https://kodi.mirror.wearetriple.com/test-builds/win64/KodiSetup-20170611-bb3345af02-sparkle-x64.exe" sparkle:version="18.11" length="59836254" type="application/octet-stream" />
+        </item>
+        <item>
+            <title>testversion</title>
+           <description>
+<![CDATA[
+one liner is better - win64
+    ]]>
+            </description>
             <pubDate>Sun, 11 Jun 2017 12:53:49 +0000</pubDate>
             <enclosure sparkle:os="" url="https://kodi.mirror.wearetriple.com/test-builds/win64/KodiSetup-20170611-bb3345af02-sparkle-x64.exe" sparkle:version="18.10" length="#FILESIZE#" type="application/octet-stream" />
         </item>
@@ -213,6 +223,7 @@ one liner is better
             <enclosure sparkle:os="osx" url="https://kodi.mirror.wearetriple.com/test-builds/osx/x86_64/kodi-20170610-6f0ba4b-sparkle-x86_64.dmg" sparkle:version="18.3" length="2110" type="application/octet-stream" sparkle:dsaSignature="MCwCFGx5pZyLCjQp/dZVVYk3wUuVlujtAhR23tJAlzTLE/StNbTXsVi4pQ5p1Q==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
         </item>
+
 
 
 
