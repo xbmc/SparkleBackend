@@ -39,7 +39,7 @@ fi
 
 if [ "$OS" = "notfound" ]
 then
-  echo couldn't determine the os from the URL
+  echo couldn't determine the os from the URL"
   exit 3
 fi
 
