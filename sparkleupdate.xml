@@ -20,7 +20,7 @@ one liner is better - win32
     ]]>
             </description>
             <pubDate>Sun, 11 Jun 2017 13:00:09 +0000</pubDate>
-            <enclosure sparkle:os="windows-x86" url="https://kodi.mirror.wearetriple.com/test-builds/win32/KodiSetup-20170611-bb3345af02-sparkle-x86.exe" sparkle:version="18.12" length="62074259" type="application/octet-stream" />
+            <enclosure sparkle:os="windows-x86" url="http://mirrors.kodi.tv/test-builds/win32/KodiSetup-20170611-bb3345af02-sparkle-x86.exe" sparkle:version="18.12" length="62074259" type="application/octet-stream" />
         </item>
         <item>
             <title>testversion</title>
