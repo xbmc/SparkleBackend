@@ -35,18 +35,18 @@ esac
 
 echo "Detected $OS platform in $DOWNLOAD_FULLPATH"
 
-FULLPATH="./tmpfile"
-
-echo $DOWNLOAD_FULLPATH
-curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
-
-
-SIGNATURE_FILE=signature.base64
-
-touch $SIGNATURE_FILE
-
 if [ "$OS" = "osx" ]
 then
+  FULLPATH="./tmpfile"
+
+  echo $DOWNLOAD_FULLPATH
+  curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
+
+
+  SIGNATURE_FILE=signature.base64
+
+  touch $SIGNATURE_FILE
+
   openssl=/usr/bin/openssl
   if [ $SPARKLE_PRIVATE_KEY_PATH ] && [ -e $SPARKLE_PRIVATE_KEY_PATH ]
   then
@@ -56,10 +56,10 @@ then
     echo "SPARKLE_PRIVATE_KEY_PATH is not valid in node environment variables - dmg signature can't be calculated and can't be used for sparkle updates"
     exit 3
   fi
+  DSASIGNATURE=`cat $SIGNATURE_FILE`
 fi
 
-DSASIGNATURE=`cat $SIGNATURE_FILE`
-FILESIZE=`ls -al "$FULLPATH" | awk '{print $5}'`
+FILESIZE=$(curl -sI $DOWNLOAD_FULLPATH | awk '/Content-Length/ { print $2 }')
 
 
 NEW_ITEM_TMP_FILE1=new_item.xml
