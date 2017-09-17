@@ -44,21 +44,12 @@ echo "Detected $OS platform in $DOWNLOAD_FULLPATH"
 
 if [ "$OS" = "osx" ]
 then
-  FULLPATH="./tmpfile"
-
-  echo $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH
-  curl -L $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH -o $FULLPATH
-
-
-  SIGNATURE_FILE=signature.base64
-
-  touch $SIGNATURE_FILE
-
-  openssl=/usr/bin/openssl
   if [ $SPARKLE_PRIVATE_KEY_PATH ] && [ -e $SPARKLE_PRIVATE_KEY_PATH ]
   then
-    echo Calculating signature for $FULLPATH
-    $openssl dgst -sha1 -binary < "$FULLPATH" | $openssl dgst -dss1 -sign "$SPARKLE_PRIVATE_KEY_PATH" | $openssl enc -base64 > $SIGNATURE_FILE
+    echo Calculating signature for $DOWNLOAD_FULLPATH
+    SIGNATURE_FILE=signature.base64
+    openssl=/usr/bin/openssl
+    curl -Ls $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH?sha1 | awk '{ print $1 }' | xxd -p -r | $openssl dgst -dss1 -sign "$SPARKLE_PRIVATE_KEY_PATH" | $openssl enc -base64 > $SIGNATURE_FILE
   else
     echo "SPARKLE_PRIVATE_KEY_PATH is not valid in node environment variables - dmg signature can't be calculated and can't be used for sparkle updates"
     exit 3
