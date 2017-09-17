@@ -6,7 +6,7 @@ then
   exit 1
 fi
 
-DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
+DOWNLOAD_MIRROR="http://mirrors.kodi.tv"
 
 TITLE=$1
 VERSION=$2
@@ -20,6 +20,7 @@ DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 case "$DOWNLOAD_FULLPATH" in
   */osx/*-x86_64.dmg)
     OS=osx
+    queryString="?https=1"
     ;;
   */windows/win32/*-x86.exe)
     OS=windows-x86
@@ -73,7 +74,7 @@ sed -ie "s|#VERSION#|$VERSION|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH$queryString|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then
