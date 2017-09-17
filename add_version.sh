@@ -6,68 +6,58 @@ then
   exit 1
 fi
 
-DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
+DOWNLOAD_MIRROR="http://mirrors.kodi.tv"
 
 TITLE=$1
 VERSION=$2
 CHANGELOG=$3
-DOWNLOAD_FULLPATH=$4
+DOWNLOAD_FULLPATH=$(echo $4 | sed -E -e 's|^https?://[^/]+||g' -e 's|^/*||g' -e 's|\?.*||g')
 SPARKLE_XML=$5
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
-OS=notfound
+curl -sI --fail $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH > /dev/null
+if [[ $? -ne 0 ]]; then
+  echo "$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH doesn't exist"
+  exit 1
+fi
 
 #determine os from the download url
-if echo $DOWNLOAD_FULLPATH | grep osx
-then
-  OS=osx
-  echo "Detected osx platform in url"
-fi
+case "$DOWNLOAD_FULLPATH" in
+  */osx/*-x86_64.dmg)
+    OS=osx
+    queryString="?https=1"
+    ;;
+  */windows/win32/*-x86.exe)
+    OS=windows-x86
+    ;;
+  */windows/win64/*-x64.exe)
+    OS=windows-x64
+    ;;
+  *)
+    echo "OS couldn't be determine in $DOWNLOAD_FULLPATH" >&2
+    exit 3
+    ;;
+esac
 
-if echo $DOWNLOAD_FULLPATH | grep win32
-then
-  OS=windows-x86
-  echo "Detected win32 platform in url"
-fi
-
-if echo $DOWNLOAD_FULLPATH | grep win64
-then
-  OS=windows-x64
-  echo "Detected win64 platform in url"
-fi
-
-if [ "$OS" = "notfound" ]
-then
-  echo couldnt determine the os from the URL
-  exit 3
-fi
-
-FULLPATH="./tmpfile"
-
-echo $DOWNLOAD_FULLPATH
-curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
-
-
-SIGNATURE_FILE=signature.base64
-
-touch $SIGNATURE_FILE
+echo "Detected $OS platform in $DOWNLOAD_FULLPATH"
 
 if [ "$OS" = "osx" ]
 then
-  openssl=/usr/bin/openssl
   if [ $SPARKLE_PRIVATE_KEY_PATH ] && [ -e $SPARKLE_PRIVATE_KEY_PATH ]
   then
-    echo Calculating signature for $FULLPATH
-    $openssl dgst -sha1 -binary < "$FULLPATH" | $openssl dgst -dss1 -sign "$SPARKLE_PRIVATE_KEY_PATH" | $openssl enc -base64 > $SIGNATURE_FILE
+    echo Calculating signature for $DOWNLOAD_FULLPATH
+    SIGNATURE_FILE=signature.base64
+    openssl=/usr/bin/openssl
+    curl -Ls $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH?sha1 | awk '{ print $1 }' | xxd -p -r | $openssl dgst -dss1 -sign "$SPARKLE_PRIVATE_KEY_PATH" | $openssl enc -base64 > $SIGNATURE_FILE
   else
     echo "SPARKLE_PRIVATE_KEY_PATH is not valid in node environment variables - dmg signature can't be calculated and can't be used for sparkle updates"
     exit 3
   fi
+  DSASIGNATURE=`cat $SIGNATURE_FILE`
 fi
 
-DSASIGNATURE=`cat $SIGNATURE_FILE`
-FILESIZE=`ls -al "$FULLPATH" | awk '{print $5}'`
+FILESIZE=$(curl -sI $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH | awk '/Content-Length/ { print $2 }')
 
 
 NEW_ITEM_TMP_FILE1=new_item.xml
@@ -81,7 +71,7 @@ sed -ie "s|#VERSION#|$VERSION|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_FULLPATH|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH$queryString|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then
@@ -131,4 +121,4 @@ cat sparkle_xmlfeed_end.template >> $SPARKLE_XML
 #some cleanup
 rm $OLD_ITEMS_TMP_FILE
 rm $NEW_ITEM_TMP_FILE1
-rm $SIGNATURE_FILE
+rm $SIGNATURE_FILE $FULLPATH "$NEW_ITEM_TMP_FILE1"e "$SPARKLE_XML"e
