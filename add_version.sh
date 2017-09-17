@@ -11,7 +11,7 @@ DOWNLOAD_MIRROR="https://kodi.mirror.wearetriple.com"
 TITLE=$1
 VERSION=$2
 CHANGELOG=$3
-DOWNLOAD_FULLPATH=$4
+DOWNLOAD_FULLPATH=$(echo $4 | sed -E -e 's|^https?://[^/]+||g' -e 's|^/*||g' -e 's|\?.*||g')
 SPARKLE_XML=$5
 SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
@@ -39,8 +39,8 @@ if [ "$OS" = "osx" ]
 then
   FULLPATH="./tmpfile"
 
-  echo $DOWNLOAD_FULLPATH
-  curl -L $DOWNLOAD_FULLPATH -o $FULLPATH
+  echo $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH
+  curl -L $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH -o $FULLPATH
 
 
   SIGNATURE_FILE=signature.base64
@@ -59,7 +59,7 @@ then
   DSASIGNATURE=`cat $SIGNATURE_FILE`
 fi
 
-FILESIZE=$(curl -sI $DOWNLOAD_FULLPATH | awk '/Content-Length/ { print $2 }')
+FILESIZE=$(curl -sI $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH | awk '/Content-Length/ { print $2 }')
 
 
 NEW_ITEM_TMP_FILE1=new_item.xml
@@ -73,7 +73,7 @@ sed -ie "s|#VERSION#|$VERSION|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#DATE#|$DATE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#FILESIZE#|$FILESIZE|" $NEW_ITEM_TMP_FILE1
 sed -ie "s|#OS#|$OS|" $NEW_ITEM_TMP_FILE1
-sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_FULLPATH|" $NEW_ITEM_TMP_FILE1
+sed -ie "s|#DOWNLOAD_FULLPATH#|$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH|" $NEW_ITEM_TMP_FILE1
 
 if [ "$OS" = "osx" ]
 then
