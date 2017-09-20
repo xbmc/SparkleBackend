@@ -58,7 +58,7 @@ then
   DSASIGNATURE=`cat $SIGNATURE_FILE`
 fi
 
-FILESIZE=$(curl -sI $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH | awk '/Content-Length/ { sub(/\r\n$/,""); print $2 }')
+FILESIZE=$(curl -sI $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH | awk '/Content-Length/ { print $2 }' | tr -d '\r\n')
 
 
 NEW_ITEM_TMP_FILE1=new_item.xml
