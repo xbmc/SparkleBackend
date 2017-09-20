@@ -2,6 +2,16 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <item>
+            <title>New winsparkle version</title>
+           <description>
+<![CDATA[
+This can hold html but no normal linebreaks afaik
+    ]]>
+            </description>
+            <pubDate>Wed, 20 Sep 2017 17:41:58 +0000</pubDate>
+            <enclosure sparkle:os="windows-x86" url="http://mirrors.kodi.tv/releases/windows/win32/kodi-17.4-Krypton-x86.exe" sparkle:version="18.13" length="81790517" type="application/octet-stream" />
+        </item>
+        <item>
             <title>testversion</title>
            <description>
 <![CDATA[
