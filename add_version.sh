@@ -17,7 +17,8 @@ SUBFOLDER=""
 DATE=`date +"%a, %d %b %Y %H:%M:%S %z"`
 
 curl -sI --fail $DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH > /dev/null
-if [[ $? -ne 0 ]]; then
+if [ $? -ne 0 ]
+then
   echo "$DOWNLOAD_MIRROR/$DOWNLOAD_FULLPATH doesn't exist"
   exit 1
 fi
