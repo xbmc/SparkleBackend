@@ -2,6 +2,17 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <item>
+            <title>New osx version</title>
+           <description>
+<![CDATA[
+one liner is better - osx - new backend script test
+    ]]>
+            </description>
+            <pubDate>Wed, 20 Sep 2017 17:43:49 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.4-Krypton-x86_64.dmg?https=1" sparkle:version="18.14" length="77843361" type="application/octet-stream" sparkle:dsaSignature="MCwCFEA2qVLEPW/YVwZvWCsk6I4RgzB4AhQ5t2/AnKPeBe8GxJ7Qt2G4brVmBQ==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
             <title>New winsparkle version</title>
            <description>
 <![CDATA[
