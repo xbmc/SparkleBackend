@@ -8,6 +8,17 @@
 one liner is better - osx - new backend script test
     ]]>
             </description>
+            <pubDate>Wed, 20 Sep 2017 18:15:07 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.4-Krypton-x86_64.dmg?https=1" sparkle:version="18.16" length="77843361" type="application/octet-stream" sparkle:dsaSignature="MCwCFEOFNGTiOJ9QAJuBIOs31qtJiKmPAhQb3/M4dj6tPpVhN3bzxP9zRMvn6A==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>New osx version</title>
+           <description>
+<![CDATA[
+one liner is better - osx - new backend script test
+    ]]>
+            </description>
             <pubDate>Wed, 20 Sep 2017 18:00:00 +0000</pubDate>
             <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.4-Krypton-x86_64.dmg?https=1" sparkle:version="18.15" length="77843361" type="application/octet-stream" sparkle:dsaSignature="MCwCFCroHy03quJF1rE7oPZCXCUmrkhaAhQtew8Afedpu0JdjPgc9cOYLPQ8Qw==" />
             <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
