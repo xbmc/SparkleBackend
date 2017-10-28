@@ -126,4 +126,9 @@ cat sparkle_xmlfeed_end.template >> $SPARKLE_XML
 #some cleanup
 rm $OLD_ITEMS_TMP_FILE
 rm $NEW_ITEM_TMP_FILE1
-rm $SIGNATURE_FILE $FULLPATH "$NEW_ITEM_TMP_FILE1"e "$SPARKLE_XML"e
+rm $SIGNATURE_FILE $FULLPATH "$NEW_ITEM_TMP_FILE1"e
+
+if [ -e "$SPARKLE_XML"e ]
+then
+  rm "$SPARKLE_XML"e
+fi
