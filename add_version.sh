@@ -92,31 +92,35 @@ HEADER_LINE3="<channel>"
 FOOTER_LINE1="<\/channel>"
 FOOTER_LINE2="<\/rss>"
 
-#cat $SPARKLE_XML
-#echo removing header1
-sed -ie "/$HEADER_LINE1/d" $SPARKLE_XML
-#cat $SPARKLE_XML
-#echo removing header2
-sed -ie "/$HEADER_LINE2/d" $SPARKLE_XML
-#cat $SPARKLE_XML
-#echo removing header3
-sed -ie "/$HEADER_LINE3/d" $SPARKLE_XML
-#cat $SPARKLE_XML
-#echo removing footer1
-sed -ie "/$FOOTER_LINE1/d" $SPARKLE_XML
-#cat $SPARKLE_XML
-#echo removing footer2
-sed -ie "/$FOOTER_LINE2/d" $SPARKLE_XML
-#cat $SPARKLE_XML
+touch $OLD_ITEMS_TMP_FILE
 
-mv $SPARKLE_XML $OLD_ITEMS_TMP_FILE
-
-echo extracted items
-cat $OLD_ITEMS_TMP_FILE
+if [ -e $SPARKLE_XML ]
+then
+  #cat $SPARKLE_XML
+  #echo removing header1
+  sed -ie "/$HEADER_LINE1/d" $SPARKLE_XML
+  #cat $SPARKLE_XML
+  #echo removing header2
+  sed -ie "/$HEADER_LINE2/d" $SPARKLE_XML
+  #cat $SPARKLE_XML
+  #echo removing header3
+  sed -ie "/$HEADER_LINE3/d" $SPARKLE_XML
+  #cat $SPARKLE_XML
+  #echo removing footer1
+  sed -ie "/$FOOTER_LINE1/d" $SPARKLE_XML
+  #cat $SPARKLE_XML
+  #echo removing footer2
+  sed -ie "/$FOOTER_LINE2/d" $SPARKLE_XML
+  #cat $SPARKLE_XML
+  mv $SPARKLE_XML $OLD_ITEMS_TMP_FILE
+  echo extracted items
+  cat $OLD_ITEMS_TMP_FILE
+fi
 
 cat sparkle_xmlfeed_start.template > $SPARKLE_XML
 cat $NEW_ITEM_TMP_FILE1 >> $SPARKLE_XML
 cat $OLD_ITEMS_TMP_FILE >> $SPARKLE_XML
+
 cat sparkle_xmlfeed_end.template >> $SPARKLE_XML
 
 #some cleanup
