@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <item>
+            <title>Kodi Awesome Version Number foo</title>
+           <description>
+<![CDATA[
+This can hold html but no normal linebreaks afaik
+    ]]>
+            </description>
+            <pubDate>Sat, 28 Oct 2017 13:48:54 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.5-Krypton-x86_64.dmg?https=1" sparkle:version="18.0" length="77806181" type="application/octet-stream" sparkle:dsaSignature="MCwCFACNTjkj9wOMEsoMa9QEgETraHBjAhRaYrbnDuLYecnucVfhb0EMq63erg==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>Kodi Awesome Version Number foo</title>
+           <description>
+<![CDATA[
+This can hold html but no normal linebreaks afaik
+    ]]>
+            </description>
+            <pubDate>Sat, 28 Oct 2017 13:47:28 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.5-Krypton-x86_64.dmg?https=1" sparkle:version="18.0" length="77806181" type="application/octet-stream" sparkle:dsaSignature="MCwCFH+6JV1qrHzYdtoUC2PZE5e0/GmIAhQbkTKsy42f+fq3LCRb7qp+Q6Qorw==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
+            <title>Kodi Awesome Version Number foo</title>
+           <description>
+<![CDATA[
+This can hold html but no normal linebreaks afaik
+    ]]>
+            </description>
+            <pubDate>Sat, 28 Oct 2017 13:38:44 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.5-Krypton-x86_64.dmg?https=1" sparkle:version="18.0" length="77806181" type="application/octet-stream" sparkle:dsaSignature="MCwCFBBjJbo79iDXDsDxAjgOPDVtTcJsAhRQ6ypcI5GuXRFtgUIp2bbNLEKRsQ==" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+  </channel>
+</rss>
