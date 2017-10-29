@@ -2,6 +2,17 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <item>
+            <title>Kodi test version for Osx</title>
+           <description>
+<![CDATA[
+Its the most awesome version we ever had.
+    ]]>
+            </description>
+            <pubDate>Sun, 29 Oct 2017 12:23:52 +0000</pubDate>
+            <enclosure sparkle:os="osx" url="http://mirrors.kodi.tv/test-builds/osx/x86_64/kodi-20171029-11211ef-sparkle-x86_64.dmg?https=1" sparkle:version="18.17" length="69266107" type="application/octet-stream" sparkle:dsaSignature="MC0CFH0piL+mJwdMo6O7eP8QwFojdyDnAhUAnA8RMxSiRlIJI+GaHyMZ0G7+dLo=" />
+            <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+        </item>
+        <item>
             <title>Kodi test version for Windows</title>
            <description>
 <![CDATA[
