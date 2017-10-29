@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <item>
+            <title>Kodi test version for Windows</title>
+           <description>
+<![CDATA[
+Its the most awesome version we ever had.
+    ]]>
+            </description>
+            <pubDate>Sun, 29 Oct 2017 09:33:20 +0000</pubDate>
+            <enclosure sparkle:os="windows-x64" url="http://mirrors.kodi.tv/test-builds/windows/win64/KodiSetup-20171028-691944044a-sparkle-x64.exe" sparkle:version="18.17" length="64462052" type="application/octet-stream" />
+        </item>
+  </channel>
+</rss>
